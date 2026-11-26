@@ -1,0 +1,33 @@
+# ==============================================================================
+# The African Executive Feature Summit 2027 - Apache URL Rewrite Configuration
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent directory indexing
+    Options -Indexes -MultiViews
+
+    # Block application internals and deployment metadata from HTTP access
+    RewriteRule ^(?:config|database|src|vendor|cache|scratch|\.git)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:composer\.(?:json|lock)|\.cpanel\.yml|\.env(?:\..*)?)$ - [F,L,NC]
+
+    # Pass Authorization Header to PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Allow direct access to existing physical files and directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route all requests to this directory's index.php (relative, no root RewriteBase)
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

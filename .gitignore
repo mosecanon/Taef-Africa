@@ -1,0 +1,8 @@
+/vendor/
+/database/*.sqlite
+/cache/
+/.env
+/.env.*
+/.agents/
+/scratch/
+/drift-form-01-preview.png

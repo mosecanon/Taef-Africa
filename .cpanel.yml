@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - 'composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader && mkdir -p "$HOME/taef.africa" && rsync -a --exclude=".git/" --exclude=".cpanel.yml" --exclude=".gitignore" --exclude="README.md" --exclude="composer.json" --exclude="composer.lock" --exclude=".env" --exclude=".env.*" --exclude="database/*.sqlite" --exclude="cache/" --exclude="scratch/" --exclude=".agents/" ./ "$HOME/taef.africa/"'

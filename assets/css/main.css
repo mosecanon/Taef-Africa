@@ -1,0 +1,467 @@
+/* ==============================================================================
+   THE AFRICAN EXECUTIVE FEATURE SUMMIT 2027 - CORPORATE EXECUTIVE DESIGN SYSTEM
+   ==============================================================================
+
+   Design direction: Clean, professional, corporate-event aesthetic.
+   Reduced decorative drift-form-01 elements for a more polished feel.
+   Updated typography for corporate credibility.
+   ============================================================================== */
+
+/* Master Typography Variables - Corporate Executive */
+:root {
+  --color-obsidian: #050806;
+  --color-charcoal: #0c0c0c;
+  --color-navy: #0d1321;
+  --color-emerald: #0f172a;
+  --color-lime: #a3e635;
+  --color-lime-subtle: rgba(163, 230, 53, 0.1);
+  --color-gold: #d4a853;
+  --color-gold-subtle: rgba(212, 168, 83, 0.1);
+  --color-slate: #64748b;
+  --color-slate-light: #f1f5f9;
+  --color-slate-extra: #94a3b8;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Arial', sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ==============================================================================
+   Global Reset & Base
+   ============================================================================== */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-obsidian);
+  color: var(--color-slate-light);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-obsidian);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(163, 230, 53, 0.03) 0%, transparent 40%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-extra);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime);
+}
+
+/* ==============================================================================
+   GLASSMORPHIC PANELING - Subtle, elevated
+   ============================================================================== */
+.glass-panel {
+  background: rgba(5, 8, 6, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(163, 230, 53, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.glass-panel-elevated {
+  background: rgba(10, 15, 20, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(163, 230, 53, 0.12);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-border-hover {
+  transition: all 0.2s ease;
+}
+.glass-border-hover:hover {
+  border-color: rgba(163, 230, 53, 0.25);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(163, 230, 53, 0.05);
+  transform: translateY(-1px);
+}
+
+/* ==============================================================================
+   BUTTONS - Clean, professional, no excessive glows
+   ============================================================================== */
+.lime-glow-btn {
+  background: var(--color-lime);
+  color: var(--color-obsidian);
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.lime-glow-btn:hover {
+  background: #8bc34a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.25);
+}
+
+.lime-glow-btn:focus-visible {
+  outline: 2px solid var(--color-obsidian);
+  outline-offset: 2px;
+}
+
+.gold-btn {
+  background: var(--color-gold);
+  color: var(--color-obsidian);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.gold-btn:hover {
+  background: #f5b63d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 168, 83, 0.25);
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  background: var(--color-lime);
+  color: var(--color-obsidian);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.pill-btn:hover {
+  background: #8bc34a;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.25);
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: rgba(163, 230, 53, 0.1);
+  color: var(--color-lime);
+  border: 1px solid rgba(163, 230, 53, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  background: rgba(163, 230, 53, 0.2);
+  border-color: var(--color-lime);
+}
+
+/* ==============================================================================
+   TYPOGRAPHY CLASSES
+   ============================================================================== */
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ==============================================================================
+   BADGES & TAGS
+   ============================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-lime {
+  background: var(--color-lime-subtle);
+  color: var(--color-lime);
+  border: 1px solid rgba(163, 230, 53, 0.3);
+}
+
+.badge-gold {
+  background: var(--color-gold-subtle);
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+}
+
+.badge-slate {
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--color-slate);
+  border: 1px solid rgba(163, 230, 53, 0.1);
+}
+
+/* ==============================================================================
+   CARDS & PANELS - Clean, minimal borders
+   ============================================================================== */
+.drift-box {
+  position: relative;
+  background: rgba(5, 8, 6, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(163, 230, 53, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.2s ease;
+}
+
+.drift-box:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.drift-panel {
+  position: relative;
+  background: rgba(5, 8, 6, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(163, 230, 53, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* ==============================================================================
+   HERO SECTION - Clean, full-bleed, minimal overlays
+   ============================================================================== */
+.hero-ambient-bg {
+  animation: none;
+}
+
+@keyframes heroBreathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* ==============================================================================
+   RADAR/SURVEY SCAN LINE - Subtle
+   ============================================================================== */
+.radar-scan-line {
+  animation: radarScan 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes radarScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 0.3; }
+  80% { opacity: 0.3; }
+  100% { transform: translateY(1100%); opacity: 0; }
+}
+
+/* ==============================================================================
+   QUICK JUMP RAIL - Minimal
+   ============================================================================== */
+.quick-jump-rail {
+  display: none; /* Hidden by default, shown on XL screens if needed */
+}
+
+.rail-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(100, 116, 139, 0.25);
+  border: 1px solid rgba(163, 230, 53, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.rail-dot:hover,
+.rail-dot.active {
+  background: var(--color-lime);
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(163, 230, 53, 0.3);
+}
+
+.rail-tooltip {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(5, 8, 6, 0.9);
+  border: 1px solid rgba(163, 230, 53, 0.2);
+  color: var(--color-lime);
+  font-size: 0.55rem;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateY(-50%) translateX(5px);
+}
+
+.rail-dot:hover .rail-tooltip,
+.rail-dot.active .rail-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ==============================================================================
+   AMBIENT PULSE - Subtle
+   ============================================================================== */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSubtle 8s infinite ease-in-out;
+}
+
+/* ==============================================================================
+   REDUCED DECORATIVE ELEMENTS
+   Crosshairs, orbital rings, watermarks removed for cleaner corporate feel
+   ============================================================================== */
+
+/* Only keep essential structural elements, removed drift-watermark, drift-orbital-ring,
+   drift-crosshair, drift-pill-btn original styles (replaced above),
+   drift-grid-pattern, drift-panel-lime, mechanical corner marks, etc. */
+
+/* ==============================================================================
+   CHIEF GUEST SECTION SPECIFIC STYLES
+   ============================================================================== */
+.chief-guest-portrait {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.chief-guest-portrait:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(163, 230, 53, 0.08);
+}
+
+.chief-guest-portrait img {
+  transition: filter 0.5s ease;
+}
+
+.chief-guest-portrait:hover img {
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* Sticky sidebar for waitlist card */
+@media (min-width: 1024px) {
+  .sticky.top-24 {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.lime-glow-btn:focus-visible,
+.secondary-btn:focus-visible,
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 2px;
+}
+
+/* Better form styling */
+input[type="email"] {
+  transition: all 0.2s ease;
+}
+
+input[type="email"]:focus {
+  border-color: var(--color-lime);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15);
+}
+
+/* Animations for chief guest section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chief-guest-section .drift-box {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.chief-guest-section .drift-box:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.chief-guest-section .drift-box:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive text sizing for the headline */
+@media (max-width: 640px) {
+  #summit-statement-section h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  #summit-statement-section h1 {
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    line-height: 1.05;
+  }
+}
+
+@media (min-width: 1025px) {
+  #summit-statement-section h1 {
+    font-size: clamp(4.5rem, 6vw, 7rem);
+    line-height: 1.05;
+  }
+}
+
+/* ==============================================================================
+   RESPONSIVE
+   ============================================================================== */
+@media (max-width: 640px) {
+  .quick-jump-rail {
+    display: none;
+  }
+
+  /* Chief guest section mobile adjustments */
+  #chief-guest-section .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #chief-guest-section .sticky-top-24 {
+    position: static;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quick-jump-rail {
+    display: flex;
+  }
+}

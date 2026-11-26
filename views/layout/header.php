@@ -25,14 +25,17 @@ $config = $config ?? (require __DIR__ . '/../../config/app.php');
     <meta property="og:url" content="<?= htmlspecialchars((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>">
     <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
     <meta property="og:description" content="<?= htmlspecialchars($metaDesc) ?>">
-    <meta property="og:image" content="<?= url('/assets/images/vip-delegate-poster.jpg') ?>">
+    <meta property="og:image" content="<?= htmlspecialchars((isset($_SERVER['HTTP_HOST']) ? ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]") : "") . url('/assets/images/summit-logo.png')) ?>">
+    <meta property="og:image:secure_url" content="<?= htmlspecialchars((isset($_SERVER['HTTP_HOST']) ? ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]") : "") . url('/assets/images/summit-logo.png')) ?>">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="The African Executive Feature Summit 2027 Logo">
     <meta property="og:site_name" content="The African Executive Feature Summit">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle) ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($metaDesc) ?>">
-    <meta name="twitter:image" content="<?= url('/assets/images/vip-delegate-poster.jpg') ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars((isset($_SERVER['HTTP_HOST']) ? ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]") : "") . url('/assets/images/summit-logo.png')) ?>">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="<?= url('/assets/images/summit-logo.png') ?>">
